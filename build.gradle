@@ -7,7 +7,7 @@ buildscript {
         buildToolsVersion = "25.0.2"
         supportLibVersion = "25.3.0"
 
-        gradleVersion = "2.3.0"
+        gradleVersion = "3.0.1"
     }
     repositories {
         jcenter()
