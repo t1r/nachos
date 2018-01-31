@@ -46,8 +46,9 @@ import com.hootsuite.nachos.R;
  */
 public class ChipSpan extends ImageSpan implements Chip {
 
-    private static final float SCALE_PERCENT_OF_CHIP_HEIGHT = 0.70f;
-    private static final boolean ICON_ON_LEFT_DEFAULT = true;
+    private static final float SCALE_PERCENT_OF_CHIP_HEIGHT = 0.40f;
+    private static final float SCALE_PERCENT_OF_IMAGE = 0.5f;
+    private static final boolean ICON_ON_LEFT_DEFAULT = false;
 
     private int[] mStateSet = new int[]{};
 
@@ -450,7 +451,7 @@ public class ChipSpan extends ImageSpan implements Chip {
         // So the center of the circle is one radius distance from either the left or right edge (depending on which side the icon is being drawn on)
         float circleX = mShowIconOnLeft ? (x + radius) : (x + mChipWidth - radius);
         // The y coordinate is always just one radius distance from the top
-        canvas.drawCircle(circleX, top + radius, radius, paint);
+        canvas.drawCircle(circleX, top + radius, radius * SCALE_PERCENT_OF_IMAGE, paint);
 
         paint.setColor(mTextColor);
     }

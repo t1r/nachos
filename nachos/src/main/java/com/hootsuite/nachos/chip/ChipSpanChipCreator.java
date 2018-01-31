@@ -27,6 +27,7 @@ public class ChipSpanChipCreator implements ChipCreator<ChipSpan> {
         int chipHeight = chipConfiguration.getChipHeight();
         int chipVerticalSpacing = chipConfiguration.getChipVerticalSpacing();
         int maxAvailableWidth = chipConfiguration.getMaxAvailableWidth();
+        int iconImageBackground = chipConfiguration.getIconBackgroundColor();
 
         if (chipSpacing != -1) {
             chip.setLeftMargin(chipSpacing / 2);
@@ -49,6 +50,9 @@ public class ChipSpanChipCreator implements ChipCreator<ChipSpan> {
         }
         if (maxAvailableWidth != -1) {
             chip.setMaxAvailableWidth(maxAvailableWidth);
+        }
+        if (iconImageBackground != -1) {
+            chip.setIconBackgroundColor(iconImageBackground);
         }
     }
 }

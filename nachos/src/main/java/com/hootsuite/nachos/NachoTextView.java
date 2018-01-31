@@ -127,6 +127,7 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
     private int mChipTextSize = -1;
     private int mChipHeight = -1;
     private int mChipVerticalSpacing = -1;
+    private int iconBackgroundColor = -1;
 
     private int mDefaultPaddingTop = 0;
     private int mDefaultPaddingBottom = 0;
@@ -199,6 +200,7 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
                 mChipTextSize = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipTextSize, -1);
                 mChipHeight = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipHeight, -1);
                 mChipVerticalSpacing = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipVerticalSpacing, -1);
+                iconBackgroundColor = attributes.getColor(R.styleable.NachoTextView_chipIconBackground, -1);
             } finally {
                 attributes.recycle();
             }
@@ -439,7 +441,8 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
                     mChipTextSize,
                     mChipHeight,
                     mChipVerticalSpacing,
-                    availableWidth);
+                    availableWidth,
+                    iconBackgroundColor);
 
             mChipTokenizer.applyConfiguration(text, configuration);
         }
@@ -749,6 +752,9 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
         int end = getSelectionEnd();
         Editable editable = getText();
         int start = mChipTokenizer.findTokenStart(editable, end);
+        if (end < start) {
+            end = start;
+        }
         editable.replace(start, end, mChipTokenizer.terminateToken(text, data));
 
         endUnwatchedTextChange();

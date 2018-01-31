@@ -11,11 +11,11 @@ public class ChipConfiguration {
     private final int mChipHeight;
     private final int mChipVerticalSpacing;
     private final int mMaxAvailableWidth;
+    private final int mIconBackgroundColor;
 
     /**
      * Creates a new ChipConfiguration. You can pass in {@code -1} or {@code null} for any of the parameters to indicate that parameter should be
      * ignored.
-     *
      * @param chipSpacing         the amount of horizontal space (in pixels) to put between consecutive chips
      * @param chipBackground      the {@link ColorStateList} to set as the background of the chips
      * @param chipTextColor       the color to set as the text color of the chips
@@ -23,6 +23,7 @@ public class ChipConfiguration {
      * @param chipHeight          the height (in pixels) of each chip
      * @param chipVerticalSpacing the amount of vertical space (in pixels) to put between chips on consecutive lines
      * @param maxAvailableWidth   the maximum available with for a chip (the width of a full line of text in the text view)
+     * @param iconBackgroundColor
      */
     ChipConfiguration(int chipSpacing,
                       ColorStateList chipBackground,
@@ -30,7 +31,8 @@ public class ChipConfiguration {
                       int chipTextSize,
                       int chipHeight,
                       int chipVerticalSpacing,
-                      int maxAvailableWidth) {
+                      int maxAvailableWidth,
+                      int iconBackgroundColor) {
         mChipSpacing = chipSpacing;
         mChipBackground = chipBackground;
         mChipTextColor = chipTextColor;
@@ -38,6 +40,7 @@ public class ChipConfiguration {
         mChipHeight = chipHeight;
         mChipVerticalSpacing = chipVerticalSpacing;
         mMaxAvailableWidth = maxAvailableWidth;
+        mIconBackgroundColor = iconBackgroundColor;
     }
 
     public int getChipSpacing() {
@@ -66,5 +69,9 @@ public class ChipConfiguration {
 
     public int getMaxAvailableWidth() {
         return mMaxAvailableWidth;
+    }
+
+    public int getIconBackgroundColor() {
+        return mIconBackgroundColor;
     }
 }
