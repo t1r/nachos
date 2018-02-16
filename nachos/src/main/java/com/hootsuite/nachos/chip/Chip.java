@@ -26,4 +26,9 @@ public interface Chip {
      * @param stateSet one of the state constants in {@link android.view.View}
      */
     void setState(int[] stateSet);
+
+    /**
+     * @return the image icon start position
+     */
+    public float getImageX();
 }

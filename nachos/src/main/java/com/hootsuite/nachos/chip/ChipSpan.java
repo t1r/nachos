@@ -76,6 +76,7 @@ public class ChipSpan extends ImageSpan implements Chip {
     private int mChipHeight = -1;
     private int mChipWidth = -1;
     private int mIconWidth;
+    public float imageX = -1;
 
     private int mCachedSize = -1;
 
@@ -258,6 +259,11 @@ public class ChipSpan extends ImageSpan implements Chip {
     @Override
     public CharSequence getText() {
         return mText;
+    }
+
+    @Override
+    public float getImageX() {
+        return imageX;
     }
 
     @Override
@@ -451,6 +457,7 @@ public class ChipSpan extends ImageSpan implements Chip {
         // So the center of the circle is one radius distance from either the left or right edge (depending on which side the icon is being drawn on)
         float circleX = mShowIconOnLeft ? (x + radius) : (x + mChipWidth - radius);
         // The y coordinate is always just one radius distance from the top
+        imageX = circleX;
         canvas.drawCircle(circleX, top + radius, radius * SCALE_PERCENT_OF_IMAGE, paint);
 
         paint.setColor(mTextColor);

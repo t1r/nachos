@@ -552,13 +552,12 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
             // character one past the end of the span
             // This matches up perfectly with chipStart and chipEnd so we can just directly compare them...
             if (chipStart <= offset && offset <= chipEnd) {
-                float startX = getXForIndex(chipStart);
                 float endX = getXForIndex(chipEnd - 1);
                 float eventX = event.getX();
                 // ... however, when comparing the x coordinate we need to use (chipEnd - 1) because chipEnd will give us the x coordinate of the
                 // beginning of the next span since that is actually what chipEnd holds. We want the x coordinate of the end of the current span so
                 // we use (chipEnd - 1)
-                if (startX <= eventX && eventX <= endX) {
+                if (chip.getImageX() <= eventX && eventX <= endX) {
                     return chip;
                 }
             }
