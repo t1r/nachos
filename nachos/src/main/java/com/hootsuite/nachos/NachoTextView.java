@@ -71,9 +71,9 @@ import java.util.Map;
  *         <li>chipTextColor - the color of the chip text</li>
  *         <li>chipTextSize - the font size of the chip text</li>
  *         <li>chipHeight - the height of a single chip</li>
- *         <li>chipVerticalSpacing - the vertical space between chips on consecutive lines
+ *         <li>nachos_chipVerticalSpacing - the vertical space between chips on consecutive lines
  *             <ul>
- *                 <li>Note: chipVerticalSpacing is only used if a chipHeight is also set</li>
+ *                 <li>Note: nachos_chipVerticalSpacing is only used if a chipHeight is also set</li>
  *             </ul>
  *         </li>
  *     </ul>
@@ -194,13 +194,13 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
                     R.style.DefaultChipSuggestionTextView);
 
             try {
-                mChipSpacing = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipSpacing, -1);
-                mChipBackground = attributes.getColorStateList(R.styleable.NachoTextView_chipBackground);
-                mChipTextColor = attributes.getColor(R.styleable.NachoTextView_chipTextColor, -1);
-                mChipTextSize = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipTextSize, -1);
-                mChipHeight = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipHeight, -1);
-                mChipVerticalSpacing = attributes.getDimensionPixelSize(R.styleable.NachoTextView_chipVerticalSpacing, -1);
-                iconBackgroundColor = attributes.getColor(R.styleable.NachoTextView_chipIconBackground, -1);
+                mChipSpacing = attributes.getDimensionPixelSize(R.styleable.NachoTextView_nachos_chipSpacing, -1);
+                mChipBackground = attributes.getColorStateList(R.styleable.NachoTextView_nachos_chipBackground);
+                mChipTextColor = attributes.getColor(R.styleable.NachoTextView_nachos_chipTextColor, -1);
+                mChipTextSize = attributes.getDimensionPixelSize(R.styleable.NachoTextView_nachos_chipTextSize, -1);
+                mChipHeight = attributes.getDimensionPixelSize(R.styleable.NachoTextView_nachos_chipHeight, -1);
+                mChipVerticalSpacing = attributes.getDimensionPixelSize(R.styleable.NachoTextView_nachos_chipVerticalSpacing, -1);
+                iconBackgroundColor = attributes.getColor(R.styleable.NachoTextView_nachos_chipIconBackground, -1);
             } finally {
                 attributes.recycle();
             }

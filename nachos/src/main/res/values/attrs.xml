@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="NachoTextView">
-        <attr name="chipSpacing" format="reference|dimension" />
-        <attr name="chipBackground" format="reference|color"/>
-        <attr name="chipTextColor" format="reference|color"/>
-        <attr name="chipTextSize" format="reference|dimension"/>
-        <attr name="chipHeight" format="reference|dimension"/>
-        <attr name="chipVerticalSpacing" format="reference|dimension"/>
-        <attr name="chipIconBackground" format="reference|color"/>
+        <attr name="nachos_chipSpacing" format="reference|dimension" />
+        <attr name="nachos_chipBackground" format="reference|color"/>
+        <attr name="nachos_chipTextColor" format="reference|color"/>
+        <attr name="nachos_chipTextSize" format="reference|dimension"/>
+        <attr name="nachos_chipHeight" format="reference|dimension"/>
+        <attr name="nachos_chipVerticalSpacing" format="reference|dimension"/>
+        <attr name="nachos_chipIconBackground" format="reference|color"/>
     </declare-styleable>
 </resources>
