@@ -168,6 +168,10 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
     // Layout
     private boolean mLayoutComplete;
 
+    //outer click listeners
+    private List<String> excludeTextList = new ArrayList<>();
+    private OnExcludedItemClickListener onExcludedItemClickListener = null;
+
     public NachoTextView(Context context) {
         super(context);
         init(null);
@@ -349,6 +353,10 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
         invalidateChips();
     }
 
+    public void setExcludeTextList(List<String> excludeTextList) {
+        this.excludeTextList = excludeTextList;
+    }
+
     @Nullable
     public ChipTokenizer getChipTokenizer() {
         return mChipTokenizer;
@@ -384,6 +392,10 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
 
     public void setNachoValidator(@Nullable NachoValidator nachoValidator) {
         mNachoValidator = nachoValidator;
+    }
+
+    public void setOnExcludedItemClickListener(@Nullable OnExcludedItemClickListener onExcludedItemClickListener) {
+        this.onExcludedItemClickListener = onExcludedItemClickListener;
     }
 
     /**
@@ -746,6 +758,12 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
 
         Object data = getDataForSuggestion(adapter, position);
         CharSequence text = getFilter().convertResultToString(adapter.getItem(position));
+        if (excludeTextList.contains(text.toString())) {
+            if (onExcludedItemClickListener != null)
+                onExcludedItemClickListener.onExcludedItemClick(text.toString());
+            endUnwatchedTextChange();
+            return;
+        }
 
         clearComposingText();
         int end = getSelectionEnd();
@@ -1090,5 +1108,9 @@ public class NachoTextView extends MultiAutoCompleteTextView implements TextWatc
         public boolean onSingleTapUp(MotionEvent e) {
             return true;
         }
+    }
+
+    public interface OnExcludedItemClickListener {
+        void onExcludedItemClick(String text);
     }
 }
